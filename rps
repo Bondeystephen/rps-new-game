@@ -1,0 +1,60 @@
+def rps():
+    import random
+    #number of lives
+    life = 5
+    keep_playing = True
+    print(f'You have received {life} lives for this game.')
+    while life > 0 and keep_playing == True:
+        #generate player and computer choice
+        player_input = input('Enter r, p, s , for Rock , Paper, Scissors:')
+    
+        game_list = ['r', 'p', 's']
+        computer_input  = random.choice(game_list)
+        print(f'You chose {player_input} and computer chose {computer_input}.\n')
+        #logical functions for the game
+
+        if player_input == computer_input:
+            print(f"Both players chose {player_input}, there's a tie.")  
+        elif player_input == 'r':
+            if computer_input == 's':
+                print(f'Rock smashes Scissors, You win!')
+            else:
+                print(f'Paper covers Rock, You lose.')
+                life -= 1
+                print(f'You have {life} more lives')
+        elif player_input =='p':
+            if computer_input == 'r':
+                print(f'Paper covers the Rock, You win!')
+                print(f'Scissors cuts Paper, You lose.')
+                life -= 1
+                print(f'You have {life} more lives')
+        elif player_input == 's':
+            if computer_input == 'p':
+                print(f'Scissors cuts paper, You win!')    
+            else:
+                print(f'Rock smashes Scissors, You lose.')
+                life -= 1
+                print(f'You have {life} more lives.')
+        else:
+            print(f'You lose!, invalid selection.')
+            life -= 1
+            print(f'You have {life} more lives.')
+        while True:
+            choice = input('Would you like to keep playing?:[y/n]')
+            if choice == 'y':
+                keep_playing = True
+                break
+            elif choice == 'n':
+                keep_playing = False
+                print(f'Game end')
+                break
+            else:
+                print(f'Wrong input, input is y or n')
+        
+                
+    
+       
+            
+rps()
+
+ 
